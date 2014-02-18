@@ -1,5 +1,4 @@
-@import "settings";
-@import "foundation";
+@import "normalize";
 
 // Or selectively include components
 // @import
@@ -38,3 +37,53 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+$shadow-mask-position: 0.0875em;
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: #9cb8b3;
+	h1 {
+		width: 100%;
+		text-align: center;
+		top: 25%;
+		position: absolute;
+	}
+	.banner, .banner:after {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 900;
+		white-space: nowrap;
+		color: #efedce;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		z-index: 100;
+		text-shadow: 0.04em 0.04em 0 #9cb8b3;
+		position: relative;
+		display: inline-block;
+	}
+	.banner {
+		font-size: 6em;
+		@media (max-width: 1300px) {
+			font-size: 4em;
+		}
+		@media (max-width: 900px) {
+			font-size: 3em;
+		}
+		@media (max-width: 640px) {
+			font-size: 2em;
+		}
+		@media (max-width: 480px) {
+			font-size: 1.5em;
+		}
+	}
+	.banner:after {
+		content: attr(data-shadow-text);
+		color: rgba(0, 0, 0, 0.35);
+		text-shadow: none;
+		position: absolute;
+		top: $shadow-mask-position;
+		left: $shadow-mask-position;
+		z-index: -1;
+		-webkit-mask-image: url(http://googledrive.com/host/0B87q5X76yoiWQXloeHg3MGtoTDA/mask.png);
+	}
+}
