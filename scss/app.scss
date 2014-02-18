@@ -41,23 +41,26 @@
 $shadow-mask-position: 0.0875em;
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	background: #9cb8b3;
+	font-family: 'Lato', sans-serif;
+	background: #A7DBD8;
+	a {
+		text-decoration: none;
+		outline: none;
+	}
 	h1 {
 		width: 100%;
 		text-align: center;
 		top: 25%;
-		position: absolute;
 	}
 	.banner, .banner:after {
 		font-family: 'Raleway', sans-serif;
 		font-weight: 900;
 		white-space: nowrap;
-		color: #efedce;
+		color: #F38630;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		z-index: 100;
-		text-shadow: 0.04em 0.04em 0 #9cb8b3;
+		text-shadow: 0.04em 0.04em 0 #A7DBD8;
 		position: relative;
 		display: inline-block;
 	}
@@ -85,5 +88,130 @@ body {
 		left: $shadow-mask-position;
 		z-index: -1;
 		-webkit-mask-image: url(http://googledrive.com/host/0B87q5X76yoiWQXloeHg3MGtoTDA/mask.png);
+	}
+	section {
+		margin: 50px 0;
+		p {
+			max-width: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+	#trigger-overlay {
+		border: none;
+		padding: 15px 30px;
+		outline: none;
+		background: #69D2E7;
+		display: inline-block;
+		color: #fff;
+		margin: 5px;
+		text-transform: uppercase;
+		border-radius: 2px;
+		letter-spacing: 1px;
+		font-size: 100%;
+		width: 50%;
+	}
+}
+
+/* Overlay style */
+.overlay {
+	font-family: 'Lato', sans-serif;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(250,105,0,0.9);
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	overflow: hidden;
+	border: none;
+	background: url(http://googledrive.com/host/0B87q5X76yoiWQXloeHg3MGtoTDA/cross.png) no-repeat center center;
+	text-indent: 200%;
+	color: transparent;
+	outline: none;
+	z-index: 100;
+}
+
+/* Menu style */
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 60%;
+	height: 90%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+
+.overlay ul li {
+	display: block;
+	height: 20%;
+	height: calc(100% / 5);
+	min-height: 54px;
+}
+
+.overlay ul li a {
+	font-size: 54px;
+	font-weight: 300;
+	display: block;
+	color: #fff;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+	color: #f0f0f0;
+}
+
+.container {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.container.overlay-open {
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
+}
+
+.overlay-contentscale {
+	visibility: hidden;
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+	-webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+	transition: transform 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-contentscale.open {
+	visibility: visible;
+	-webkit-transform: translateY(0%);
+	transform: translateY(0%);
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height: 70%;
+		font-size: 34px;
+	}
+	.overlay ul li {
+		min-height: 34px;
 	}
 }
