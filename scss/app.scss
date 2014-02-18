@@ -1,4 +1,4 @@
-@import "normalize";
+@import "bower_components/foundation/scss/normalize";
 
 // Or selectively include components
 // @import
@@ -39,6 +39,7 @@
 //   "foundation/components/visibility";
 
 $shadow-mask-position: 0.0875em;
+$overlay-backgrount-color: #FA6900;
 
 body {
 	font-family: 'Lato', sans-serif;
@@ -103,7 +104,7 @@ body {
 		outline: none;
 		background: #69D2E7;
 		display: inline-block;
-		color: #fff;
+		color: #E0E4CC;
 		margin: 5px;
 		text-transform: uppercase;
 		border-radius: 2px;
@@ -121,7 +122,8 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(250,105,0,0.9);
+	opacity: 0.9;
+	background: $overlay-backgrount-color;
 }
 
 /* Overlay closing cross */
@@ -170,7 +172,7 @@ body {
 	font-size: 54px;
 	font-weight: 300;
 	display: block;
-	color: #fff;
+	color: #E0E4CC;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
